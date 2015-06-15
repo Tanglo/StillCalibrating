@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E561209C1B2EACD1001F5693 /* SCPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E561209B1B2EACD1001F5693 /* SCPreviewViewController.swift */; };
+		E561209E1B2EB8A8001F5693 /* To do.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E561209D1B2EB8A8001F5693 /* To do.rtf */; };
 		E5C680F01B2E88B7008FDD84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C680EF1B2E88B7008FDD84 /* AppDelegate.swift */; };
 		E5C680F21B2E88B7008FDD84 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5C680F11B2E88B7008FDD84 /* Images.xcassets */; };
 		E5C680F51B2E88B7008FDD84 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5C680F31B2E88B7008FDD84 /* MainMenu.xib */; };
@@ -24,6 +26,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E56120991B2EA984001F5693 /* LabBot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LabBot.framework; path = ../../../Library/Frameworks/LabBot.framework; sourceTree = "<group>"; };
+		E561209B1B2EACD1001F5693 /* SCPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCPreviewViewController.swift; sourceTree = "<group>"; };
+		E561209D1B2EB8A8001F5693 /* To do.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "To do.rtf"; sourceTree = "<group>"; };
 		E5C680EA1B2E88B7008FDD84 /* Still Calibrating.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Still Calibrating.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C680EE1B2E88B7008FDD84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C680EF1B2E88B7008FDD84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +60,7 @@
 		E5C680E11B2E88B7008FDD84 = {
 			isa = PBXGroup;
 			children = (
+				E56120991B2EA984001F5693 /* LabBot.framework */,
 				E5C680EC1B2E88B7008FDD84 /* Still Calibrating */,
 				E5C680FD1B2E88B7008FDD84 /* Still CalibratingTests */,
 				E5C680EB1B2E88B7008FDD84 /* Products */,
@@ -73,7 +79,9 @@
 		E5C680EC1B2E88B7008FDD84 /* Still Calibrating */ = {
 			isa = PBXGroup;
 			children = (
+				E561209D1B2EB8A8001F5693 /* To do.rtf */,
 				E5C680EF1B2E88B7008FDD84 /* AppDelegate.swift */,
+				E561209B1B2EACD1001F5693 /* SCPreviewViewController.swift */,
 				E5C680F11B2E88B7008FDD84 /* Images.xcassets */,
 				E5C680F31B2E88B7008FDD84 /* MainMenu.xib */,
 				E5C680ED1B2E88B7008FDD84 /* Supporting Files */,
@@ -187,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E561209E1B2EB8A8001F5693 /* To do.rtf in Resources */,
 				E5C680F21B2E88B7008FDD84 /* Images.xcassets in Resources */,
 				E5C680F51B2E88B7008FDD84 /* MainMenu.xib in Resources */,
 			);
@@ -223,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C680F01B2E88B7008FDD84 /* AppDelegate.swift in Sources */,
+				E561209C1B2EACD1001F5693 /* SCPreviewViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +351,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Still Calibrating/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +366,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "Still Calibrating/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
