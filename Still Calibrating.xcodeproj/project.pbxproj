@@ -114,6 +114,7 @@
 			buildConfigurationList = E5C681041B2E88B7008FDD84 /* Build configuration list for PBXNativeTarget "Still Calibrating" */;
 			buildPhases = (
 				E5C680E61B2E88B7008FDD84 /* Sources */,
+				E5C6810A1B2E8925008FDD84 /* ShellScript */,
 				E5C680E71B2E88B7008FDD84 /* Frameworks */,
 				E5C680E81B2E88B7008FDD84 /* Resources */,
 			);
@@ -199,6 +200,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E5C6810A1B2E8925008FDD84 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/tools/incBuildNum.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\" \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E5C680E61B2E88B7008FDD84 /* Sources */ = {
@@ -396,6 +413,7 @@
 				E5C681061B2E88B7008FDD84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5C681071B2E88B7008FDD84 /* Build configuration list for PBXNativeTarget "Still CalibratingTests" */ = {
 			isa = XCConfigurationList;
@@ -404,6 +422,7 @@
 				E5C681091B2E88B7008FDD84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
