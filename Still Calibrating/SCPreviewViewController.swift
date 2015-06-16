@@ -13,6 +13,8 @@ class SCPreviewViewController: NSViewController {
     @IBOutlet var cameraPopup: NSPopUpButton?
     @IBOutlet var captureStillButton: NSButton?
     var videoDevices = [AVCaptureDevice]()
+    var selectedDevice: AVCaptureDevice?
+    var session = AVCaptureSession()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,22 +38,49 @@ class SCPreviewViewController: NSViewController {
                 layer.removeFromSuperlayer()
             }
         }
-        let session = AVCaptureSession()
         session.sessionPreset = AVCaptureSessionPresetMedium
         let captureVideoPreviewLayer = AVCaptureVideoPreviewLayer.layerWithSession(session) as? AVCaptureVideoPreviewLayer
         captureVideoPreviewLayer!.frame = self.view.bounds
 //        captureVideoPreviewLayer!.transform = CATransform3DMakeRotation(CGFloat(M_1_PI), 0.0, 1.0, 0.0)
         self.view.layer!.addSublayer(captureVideoPreviewLayer)
         
-        let videoDevice = videoDevices[sender.indexOfSelectedItem()]
+        selectedDevice = videoDevices[sender.indexOfSelectedItem()]
         var error: NSError?
-        let deviceInput = AVCaptureDeviceInput.deviceInputWithDevice(videoDevice, error: &error) as? AVCaptureDeviceInput
+        let deviceInput = AVCaptureDeviceInput.deviceInputWithDevice(selectedDevice, error: &error) as? AVCaptureDeviceInput
         if deviceInput == nil {
             let errorAlert = NSAlert(error: error!)
             errorAlert.runModal()
         }
         session.addInput(deviceInput)
+        let stillOutput = AVCaptureStillImageOutput()
+        session.addOutput(stillOutput)
         session.startRunning()
+    }
+    
+    @IBAction func captureStillImage(sender: AnyObject){
+        if selectedDevice != nil {
+            let stillOutput = session.outputs[0] as! AVCaptureStillImageOutput
+            let videoConnection = stillOutput.connectionWithMediaType(AVMediaTypeVideo)
+            let savePanel = NSSavePanel()
+            savePanel.extensionHidden = false
+            let result = savePanel.runModal()
+            if result == NSModalResponseOK {
+                let filePath = savePanel.URL!.path!+".png"
+                stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
+                    let exifAttachments = CMGetAttachment(sampleBuffer, kCGImagePropertyExifDictionary, nil)
+                    if (exifAttachments != nil) {
+                        //use attachments
+                    }
+                    let capturedImageRep = NSBitmapImageRep(data: AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer))
+                    let pngData = capturedImageRep?.representationUsingType(NSBitmapImageFileType.NSPNGFileType, properties: [NSObject: AnyObject]())
+                    if pngData != nil {
+                        pngData!.writeToFile(filePath, atomically: true)
+                    }
+                })
+            }
+        } else {
+            NSBeep()
+        }
     }
     
 }

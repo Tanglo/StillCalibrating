@@ -688,6 +688,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="captureStillImage:" target="LnM-Bp-zjg" id="qIk-q3-xs9"/>
+                        </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oZz-wv-CTI">
                         <rect key="frame" x="18" y="17" width="199" height="26"/>
