@@ -41,8 +41,9 @@ class SCPreviewViewController: NSViewController {
         session.sessionPreset = AVCaptureSessionPresetMedium
         let captureVideoPreviewLayer = AVCaptureVideoPreviewLayer.layerWithSession(session) as? AVCaptureVideoPreviewLayer
         captureVideoPreviewLayer!.frame = self.view.bounds
-//        captureVideoPreviewLayer!.transform = CATransform3DMakeRotation(CGFloat(M_1_PI), 0.0, 1.0, 0.0)
         self.view.layer!.addSublayer(captureVideoPreviewLayer)
+        captureVideoPreviewLayer!.autoresizingMask = CAAutoresizingMask.LayerWidthSizable | CAAutoresizingMask.LayerHeightSizable
+        captureVideoPreviewLayer!.transform = CATransform3DMakeRotation(CGFloat(M_PI), 0.0, 1.0, 0.0)
         
         selectedDevice = videoDevices[sender.indexOfSelectedItem()]
         var error: NSError?
@@ -66,6 +67,10 @@ class SCPreviewViewController: NSViewController {
             let result = savePanel.runModal()
             if result == NSModalResponseOK {
                 let filePath = savePanel.URL!.path!+".png"
+                let captureAlert = NSAlert()
+                captureAlert.messageText = "Ready to capture a still image"
+                captureAlert.addButtonWithTitle("Capture")
+                captureAlert.runModal()
                 stillOutput.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (sampleBuffer: CMSampleBuffer!, error: NSError!) -> Void in
                     let exifAttachments = CMGetAttachment(sampleBuffer, kCGImagePropertyExifDictionary, nil)
                     if (exifAttachments != nil) {
