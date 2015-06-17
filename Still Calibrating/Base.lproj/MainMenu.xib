@@ -678,20 +678,6 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="1cn-0N-nFI">
                         <rect key="frame" x="0.0" y="61" width="480" height="299"/>
                     </customView>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-BF-VCA">
-                        <rect key="frame" x="352" y="13" width="114" height="32"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="kvT-3t-zFH"/>
-                            <constraint firstAttribute="width" constant="102" id="mcJ-bS-cPw"/>
-                        </constraints>
-                        <buttonCell key="cell" type="push" title="Capture still" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xB3-EY-Ku1">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="captureStillImage:" target="LnM-Bp-zjg" id="qIk-q3-xs9"/>
-                        </connections>
-                    </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oZz-wv-CTI">
                         <rect key="frame" x="18" y="17" width="199" height="26"/>
                         <constraints>
@@ -713,9 +699,54 @@
                             <action selector="selectCamera:" target="LnM-Bp-zjg" id="ikB-Hy-BZU"/>
                         </connections>
                     </popUpButton>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="z4e-U1-xIc">
+                        <rect key="frame" x="220" y="11" width="103" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="99" id="e1f-aS-sv0"/>
+                            <constraint firstAttribute="height" constant="14" id="wQN-c2-Ao7"/>
+                        </constraints>
+                        <buttonCell key="cell" type="check" title="Flip vertically" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iGW-eG-yGk">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="LnM-Bp-zjg" name="value" keyPath="self.flipVertically" id="VDo-rq-BdI"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="eDm-6f-Qyg">
+                        <rect key="frame" x="220" y="31" width="115" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="f3e-1T-RwG"/>
+                            <constraint firstAttribute="width" constant="111" id="sGv-A2-cyj"/>
+                        </constraints>
+                        <buttonCell key="cell" type="check" title="Flip hoizontally" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gYd-Zf-zBf">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="LnM-Bp-zjg" name="value" keyPath="self.flipHorizontally" id="E9Y-ty-Ddf"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jay-BF-VCA">
+                        <rect key="frame" x="352" y="13" width="114" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="kvT-3t-zFH"/>
+                            <constraint firstAttribute="width" constant="102" id="mcJ-bS-cPw"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Capture still" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xB3-EY-Ku1">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="captureStillImage:" target="LnM-Bp-zjg" id="qIk-q3-xs9"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="z4e-U1-xIc" secondAttribute="bottom" constant="13" id="4lX-s1-Ccm"/>
                     <constraint firstItem="oZz-wv-CTI" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="6Di-Hq-JUk"/>
+                    <constraint firstItem="z4e-U1-xIc" firstAttribute="top" secondItem="eDm-6f-Qyg" secondAttribute="bottom" constant="6" id="87r-zE-tzM"/>
+                    <constraint firstItem="z4e-U1-xIc" firstAttribute="leading" secondItem="oZz-wv-CTI" secondAttribute="trailing" constant="8" id="Em6-oN-X7v"/>
                     <constraint firstItem="1cn-0N-nFI" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="OwQ-s2-bd5"/>
                     <constraint firstAttribute="bottom" secondItem="oZz-wv-CTI" secondAttribute="bottom" constant="20" id="d95-5m-UJT"/>
                     <constraint firstAttribute="trailing" secondItem="Jay-BF-VCA" secondAttribute="trailing" constant="20" id="dqR-0r-XdU"/>
@@ -723,8 +754,10 @@
                     <constraint firstAttribute="trailing" secondItem="1cn-0N-nFI" secondAttribute="trailing" id="geu-9B-iI3"/>
                     <constraint firstItem="1cn-0N-nFI" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="lY5-Ci-rtD"/>
                     <constraint firstItem="oZz-wv-CTI" firstAttribute="top" secondItem="1cn-0N-nFI" secondAttribute="bottom" constant="20" id="sAC-0O-kZL"/>
+                    <constraint firstItem="eDm-6f-Qyg" firstAttribute="leading" secondItem="oZz-wv-CTI" secondAttribute="trailing" constant="8" id="ynU-ZU-bCb"/>
                 </constraints>
             </view>
+            <point key="canvasLocation" x="274" y="438"/>
         </window>
         <customObject id="LnM-Bp-zjg" customClass="SCPreviewViewController" customModule="Still_Calibrating" customModuleProvider="target">
             <connections>
@@ -733,5 +766,6 @@
                 <outlet property="view" destination="1cn-0N-nFI" id="iX0-G1-sYD"/>
             </connections>
         </customObject>
+        <userDefaultsController representsSharedInstance="YES" id="2jh-0i-Ava"/>
     </objects>
 </document>
