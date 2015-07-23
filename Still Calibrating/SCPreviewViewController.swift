@@ -128,7 +128,7 @@ class SCPreviewViewController: NSViewController {
     
     @IBAction func toggleFocus(sender: AnyObject){
         if(selectedDevice != nil){
-            var newFocusMode = AVCaptureFocusMode.AutoFocus
+            var newFocusMode = AVCaptureFocusMode.ContinuousAutoFocus
             if((sender as! NSButton).state == NSOnState){
                 newFocusMode = AVCaptureFocusMode.Locked
             }
@@ -137,7 +137,6 @@ class SCPreviewViewController: NSViewController {
                 if(selectedDevice!.lockForConfiguration(&error)){
                     selectedDevice!.focusMode = newFocusMode
                     selectedDevice!.unlockForConfiguration()
-                    println("focus changed")
                 } else {
                     let errorAlert = NSAlert(error: error!)
                     errorAlert.runModal()

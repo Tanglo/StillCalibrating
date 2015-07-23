@@ -670,7 +670,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="387"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="-5" width="480" height="387"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -747,7 +747,7 @@
                             <constraint firstAttribute="width" constant="86" id="Wgy-Hi-fLc"/>
                             <constraint firstAttribute="height" constant="14" id="lKR-wh-D86"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" title="Lock focus" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="fol-3m-tIq">
+                        <buttonCell key="cell" type="check" title="Lock focus" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fol-3m-tIq">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
