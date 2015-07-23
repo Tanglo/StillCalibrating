@@ -126,4 +126,24 @@ class SCPreviewViewController: NSViewController {
         return NSBitmapImageRep(data: flippedData!)!
     }
     
+    @IBAction func toggleFocus(sender: AnyObject){
+        if(selectedDevice != nil){
+            var newFocusMode = AVCaptureFocusMode.AutoFocus
+            if((sender as! NSButton).state == NSOnState){
+                newFocusMode = AVCaptureFocusMode.Locked
+            }
+            if(selectedDevice!.isFocusModeSupported(newFocusMode)){
+                var error: NSError?
+                if(selectedDevice!.lockForConfiguration(&error)){
+                    selectedDevice!.focusMode = newFocusMode
+                    selectedDevice!.unlockForConfiguration()
+                    println("focus changed")
+                } else {
+                    let errorAlert = NSAlert(error: error!)
+                    errorAlert.runModal()
+                }
+            }
+        }
+    }
+    
 }
